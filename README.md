@@ -39,8 +39,6 @@ them the mod just uses the defaults). Open the config screen from Mod Menu, or e
 ## Build
 
 - **JDK 25+** (the MC 26.2 ecosystem - cloth-config/modmenu - is built for JVM 25).
-- Gradle wrapper downloads from the Tencent Cloud mirror; Maven deps use Aliyun mirror +
-  Fabric maven.
 
 ```
 gradlew build
