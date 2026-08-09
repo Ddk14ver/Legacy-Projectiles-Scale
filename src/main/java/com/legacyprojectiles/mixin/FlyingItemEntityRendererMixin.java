@@ -31,12 +31,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class FlyingItemEntityRendererMixin {
 	@Inject(method = "updateRenderState(Lnet/minecraft/entity/Entity;Lnet/minecraft/client/render/entity/state/FlyingItemEntityRenderState;F)V", at = @At("HEAD"))
 	private void legacyProjectilesScale$storeEntityType(Entity entity, FlyingItemEntityRenderState state, float tickDelta, CallbackInfo ci) {
-		((FlyingItemEntityRenderStateMixin) (Object) state).legacyProjectilesScale$setEntityType(entity.getType());
+		((FlyingItemEntityRenderStateEntityType) (Object) state).legacyProjectilesScale$setEntityType(entity.getType());
 	}
 
 	@Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/util/math/MatrixStack;scale(FFF)V"))
 	private void legacyProjectilesScale$applyConfiguredScale(MatrixStack matrices, float x, float y, float z, FlyingItemEntityRenderState state) {
-		EntityType<?> type = ((FlyingItemEntityRenderStateMixin) (Object) state).legacyProjectilesScale$getEntityType();
+		EntityType<?> type = ((FlyingItemEntityRenderStateEntityType) (Object) state).legacyProjectilesScale$getEntityType();
 		float multiplier = LegacyProjectilesConfig.getScaleMultiplier(type);
 		matrices.scale(x * multiplier, y * multiplier, z * multiplier);
 	}

@@ -13,18 +13,22 @@ import org.spongepowered.asm.mixin.Unique;
  * the render state, not the entity. Each entity owns its render state instance
  * (created by {@code createRenderState()}), so storing the type here is race-free: the
  * {@code updateRenderState -> render} pair runs per entity on the render thread.
+ *
+ * <p>Access is exposed through the plain interface {@link FlyingItemEntityRenderStateEntityType}
+ * - never cast to this mixin class directly, Mixin cannot remap references to other mixin
+ * classes inside injected handlers.
  */
 @Mixin(FlyingItemEntityRenderState.class)
-public abstract class FlyingItemEntityRenderStateMixin {
+public abstract class FlyingItemEntityRenderStateMixin implements FlyingItemEntityRenderStateEntityType {
 	@Unique
 	private EntityType<?> legacyProjectilesScale$entityType;
 
-	@Unique
+	@Override
 	public EntityType<?> legacyProjectilesScale$getEntityType() {
 		return this.legacyProjectilesScale$entityType;
 	}
 
-	@Unique
+	@Override
 	public void legacyProjectilesScale$setEntityType(EntityType<?> type) {
 		this.legacyProjectilesScale$entityType = type;
 	}
