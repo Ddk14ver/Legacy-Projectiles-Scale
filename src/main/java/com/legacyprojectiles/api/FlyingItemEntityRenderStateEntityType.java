@@ -1,4 +1,4 @@
-package com.legacyprojectiles.mixin;
+package com.legacyprojectiles.api;
 
 import net.minecraft.entity.EntityType;
 

@@ -1,4 +1,5 @@
 package com.legacyprojectiles.mixin;
+import com.legacyprojectiles.api.FlyingItemEntityRenderStateEntityType;
 
 import com.legacyprojectiles.config.LegacyProjectilesConfig;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
