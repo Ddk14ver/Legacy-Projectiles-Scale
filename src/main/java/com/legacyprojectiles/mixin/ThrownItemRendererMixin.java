@@ -23,19 +23,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  *
  * <p>In the render-state pipeline {@code submit} no longer sees the entity, so the entity
  * type is stashed into the render state during {@code extractRenderState} (see
- * {@link ThrownItemRenderStateMixin}) and read back in the scale redirect below. Fireballs /
- * small fireballs / arrows are not in the config and keep their vanilla scales.
+ * {@link ThrownItemRenderStateEntityType}) and read back in the scale redirect below.
+ * Fireballs / small fireballs / arrows are not in the config and keep their vanilla scales.
  */
 @Mixin(ThrownItemRenderer.class)
 public abstract class ThrownItemRendererMixin {
 	@Inject(method = "extractRenderState(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/client/renderer/entity/state/ThrownItemRenderState;F)V", at = @At("HEAD"))
 	private void legacyProjectilesScale$storeEntityType(Entity entity, ThrownItemRenderState state, float partialTicks, CallbackInfo ci) {
-		((ThrownItemRenderStateMixin) (Object) state).legacyProjectilesScale$setEntityType(entity.getType());
+		((ThrownItemRenderStateEntityType) (Object) state).legacyProjectilesScale$setEntityType(entity.getType());
 	}
 
 	@Redirect(method = "submit", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/vertex/PoseStack;scale(FFF)V"))
 	private void legacyProjectilesScale$applyConfiguredScale(PoseStack poseStack, float x, float y, float z, ThrownItemRenderState state) {
-		EntityType<?> type = ((ThrownItemRenderStateMixin) (Object) state).legacyProjectilesScale$getEntityType();
+		EntityType<?> type = ((ThrownItemRenderStateEntityType) (Object) state).legacyProjectilesScale$getEntityType();
 		float multiplier = LegacyProjectilesConfig.getScaleMultiplier(type);
 		poseStack.scale(x * multiplier, y * multiplier, z * multiplier);
 	}
