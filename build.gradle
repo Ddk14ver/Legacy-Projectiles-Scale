@@ -6,7 +6,10 @@ plugins {
     id 'maven-publish'
 }
 
-version = project.mod_version
+// Jar names carry the Minecraft version suffix, e.g. legacy-projectiles-scale-1.0.0-26.2.jar,
+// so builds for different MC versions are never confused (the version also lands in
+// fabric.mod.json).
+version = "${project.mod_version}-${project.minecraft_version}"
 group = project.maven_group
 
 base {
