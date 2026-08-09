@@ -53,9 +53,7 @@ instead of silently not applying.
 
 ## Build
 
-Requires JDK 21+ (the mod targets Java 21). The Gradle distribution is downloaded from the
-Tencent Cloud mirror (`mirrors.cloud.tencent.com`) for fast access in China; Maven
-dependencies use the Aliyun mirror plus Fabric's maven.
+Requires JDK 21+ (the mod targets Java 21).
 
 ```
 gradlew build
