@@ -26,25 +26,25 @@ public class LegacyProjectilesConfig implements ConfigData {
 	// --- Per-projectile scale multipliers (1.0 = modern size, 0.5 = 1.8 size) ---
 
 	@ConfigEntry.Gui.Tooltip
-	public double snowballScale = 0.5;
+	public double snowballScale = 0.75;
 
 	@ConfigEntry.Gui.Tooltip
-	public double enderPearlScale = 0.5;
+	public double enderPearlScale = 0.75;
 
 	@ConfigEntry.Gui.Tooltip
-	public double splashPotionScale = 0.5;
+	public double splashPotionScale = 0.75;
 
 	@ConfigEntry.Gui.Tooltip
-	public double lingeringPotionScale = 0.5;
+	public double lingeringPotionScale = 0.75;
 
 	@ConfigEntry.Gui.Tooltip
-	public double eggScale = 0.5;
+	public double eggScale = 0.75;
 
 	@ConfigEntry.Gui.Tooltip
-	public double experienceBottleScale = 0.5;
+	public double experienceBottleScale = 0.75;
 
 	@ConfigEntry.Gui.Tooltip
-	public double enderEyeScale = 0.5;
+	public double enderEyeScale = 0.75;
 
 	// --- Behaviour ---
 

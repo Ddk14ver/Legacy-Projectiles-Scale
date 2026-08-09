@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Legacy Projectiles Scale",
-  "description": "Restores Minecraft 1.8 visuals for thrown projectiles: snowballs, ender pearls, splash potions (and eggs / XP bottles) render at half their modern size, and are never hidden in the first 2 ticks right in front of your face.",
+  "description": "Restores Minecraft 1.8 visuals for thrown projectiles: snowballs, ender pearls, splash potions (and eggs / XP bottles) render at 75% of their modern size, and are never hidden in the first 2 ticks right in front of your face.",
   "authors": [
     "LegacyProjectilesScale"
   ],
