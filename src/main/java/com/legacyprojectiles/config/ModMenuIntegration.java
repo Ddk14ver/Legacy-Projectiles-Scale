@@ -2,7 +2,7 @@ package com.legacyprojectiles.config;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
-import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.AutoConfigClient;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
@@ -13,10 +13,6 @@ import net.fabricmc.api.Environment;
 public class ModMenuIntegration implements ModMenuApi {
 	@Override
 	public ConfigScreenFactory<?> getModConfigScreenFactory() {
-		// AutoConfig.getConfigScreen is deprecated for removal but still the standard way
-		// to bridge AutoConfig into Mod Menu in Cloth Config 21.x.
-		@SuppressWarnings("removal")
-		ConfigScreenFactory<?> factory = parent -> AutoConfig.getConfigScreen(LegacyProjectilesConfig.class, parent).get();
-		return factory;
+		return parent -> AutoConfigClient.getConfigScreen(LegacyProjectilesConfig.class, parent).get();
 	}
 }

@@ -4,7 +4,8 @@ import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
-import net.minecraft.entity.EntityType;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 
 /**
  * Configuration for the mod, exposed in the Mod Menu through Cloth Config.
@@ -65,25 +66,25 @@ public class LegacyProjectilesConfig implements ConfigData {
 	 */
 	public static float getScaleMultiplier(EntityType<?> type) {
 		LegacyProjectilesConfig config = get();
-		if (type == EntityType.SNOWBALL) {
+		if (type == EntityTypes.SNOWBALL) {
 			return (float) config.snowballScale;
 		}
-		if (type == EntityType.ENDER_PEARL) {
+		if (type == EntityTypes.ENDER_PEARL) {
 			return (float) config.enderPearlScale;
 		}
-		if (type == EntityType.SPLASH_POTION) {
+		if (type == EntityTypes.SPLASH_POTION) {
 			return (float) config.splashPotionScale;
 		}
-		if (type == EntityType.LINGERING_POTION) {
+		if (type == EntityTypes.LINGERING_POTION) {
 			return (float) config.lingeringPotionScale;
 		}
-		if (type == EntityType.EGG) {
+		if (type == EntityTypes.EGG) {
 			return (float) config.eggScale;
 		}
-		if (type == EntityType.EXPERIENCE_BOTTLE) {
+		if (type == EntityTypes.EXPERIENCE_BOTTLE) {
 			return (float) config.experienceBottleScale;
 		}
-		if (type == EntityType.EYE_OF_ENDER) {
+		if (type == EntityTypes.EYE_OF_ENDER) {
 			return (float) config.enderEyeScale;
 		}
 		return 1.0F;

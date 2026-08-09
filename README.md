@@ -1,7 +1,10 @@
-# Legacy Projectiles Scale
+# Legacy Projectiles Scale (MC 26.2)
 
-A client-side Fabric mod for **Minecraft 1.21.11** that restores the **1.8** visuals for
-thrown projectiles.`This mod was completely coded by Deepseek V4 Flash0731.`
+A client-side Fabric mod for **Minecraft 26.2** that restores the **1.8** visuals for
+thrown projectiles.
+
+> This is the **fabric-26.2** branch. The 1.21.11 version lives on **master**.
+> `This mod was completely coded by Deepseek V4 Flash0731.`
 
 ## What it does
 
@@ -9,17 +12,18 @@ Two differences exist between 1.8 and modern Minecraft for thrown items:
 
 1. **Scale.** In 1.8 (`RenderSnowball`) snowballs, ender pearls, splash/lingering potions,
    eggs, XP bottles and eyes of ender were rendered with a hard-coded `scale(0.5F)`. In
-   1.21.11 they are registered with the default `FlyingItemEntityRenderer` constructor
-   (scale `1.0F`), so projectiles appear twice as large. This mod halves the scale back to
-   `0.5F` (configurable per projectile).
+   26.2 they are registered with the default `ThrownItemRenderer` constructor (scale
+   `1.0F`), so projectiles appear twice as large. This mod halves the scale back to `0.5F`
+   (configurable per projectile).
 2. **Early hiding.** Since ~1.21.6 the render pipeline hides the projectile during its
    first 2 ticks while it is still within 3.5 blocks of the camera:
-   `if (this.age < 2 && distance < 12.25) return false;` in `ThrownEntity#shouldRender`
-   (and the same rule in `EyeOfEnderEntity#shouldRender`). 1.8 had no such rule. This mod
-   disables it (configurable).
+   `if (tickCount < 2 && distance < 12.25) return false;` in
+   `ThrowableProjectile#shouldRenderAtSqrDistance` (and the same rule in
+   `EyeOfEnder#shouldRenderAtSqrDistance`). 1.8 had no such rule. This mod disables it
+   (configurable).
 
-Arrows are **not** touched: they use `TippableArrowRenderer` with the same `0.05625`
-geometry scale in both versions.
+Arrows are **not** touched: they use `TippableArrowRenderer` with the same geometry scale
+in both versions.
 
 ## Configuration
 
@@ -32,35 +36,38 @@ them the mod just uses the defaults). Open the config screen from Mod Menu, or e
   `1.0` = modern size). Values apply instantly.
 - `removeEarlyHide` — whether the first-2-ticks hiding is removed (default `true`).
 
-## Implementation notes (1.21.11 render-state architecture)
-
-Since the 1.21.6 render refactor the projectile is no longer hidden inside
-`FlyingItemEntityRenderer#render`; the early-hide rule lives in the entity itself
-(`ThrownEntity#shouldRender` / `EyeOfEnderEntity#shouldRender`). The mod therefore patches:
-
-- `ThrownEntityMixin` + `EyeOfEnderEntityMixin` — turn the `12.25F` distance constant into
-  `0.0F` inside `shouldRender`, so `distance < 0.0` is always false and the early-return can
-  never trigger (the far-distance culling at the end of the method is untouched). The
-  constant is compiled both as float and as double, so two `@ModifyConstant` handlers with
-  `require = 0` cover whichever form the compiler emitted.
-- `FlyingItemEntityRendererMixin` — `updateRenderState` stashes the entity type into the
-  render state (via `FlyingItemEntityRenderStateMixin`), and the `render` method's
-  `MatrixStack.scale` call is redirected to multiply by the configured per-type multiplier.
-  Fireballs / small fireballs / arrows are not in the config and keep vanilla scales.
-
-`required: true` is set in the mixin config so a mismatched Minecraft version fails loudly
-instead of silently not applying.
-
 ## Build
 
-Requires JDK 21+ (the mod targets Java 21). The Gradle distribution is downloaded from the
-Tencent Cloud mirror (`mirrors.cloud.tencent.com`) for fast access in China; Maven
-dependencies use the Aliyun mirror plus Fabric's maven.
+- **JDK 25+** (the MC 26.2 ecosystem - cloth-config/modmenu - is built for JVM 25).
+- Gradle wrapper downloads from the Tencent Cloud mirror; Maven deps use Aliyun mirror +
+  Fabric maven.
 
 ```
 gradlew build
 ```
 
-The jar lands in `build/libs/`. The mod itself does not depend on the Fabric API; Mod Menu
-and Cloth Config are runtime mods (Mod Menu also needs its own deps: Fabric API and
-placeholder-api).
+## Notes for this branch (MC 26.2)
+
+- Minecraft 26.1+ ships **unobfuscated** code (official Mojang names with parameter names),
+  so **no mappings declaration** is needed — Yarn was discontinued after 1.21.11. Loom's
+  obfuscation pipeline is switched off with `fabric.loom.disableObfuscation=true` in
+  `gradle.properties`.
+- Loom version `1.17-20260807.132355-18` (the pinned snapshot the official
+  fabric-example-mod template points at).
+- Mixins target the unobfuscated names: `ThrownItemRenderer`, `ThrownItemRenderState`,
+  `ThrowableProjectile`, `EyeOfEnder`, `EntityTypes`, `PoseStack`.
+
+## Implementation notes (26.2 render pipeline)
+
+- `ThrowableProjectileMixin` + `EyeOfEnderMixin` — turn the `12.25F` distance constant into
+  `0.0F` inside `shouldRenderAtSqrDistance`, so `distance < 0.0` is always false and the
+  early-return can never trigger (far-distance culling untouched). The constant compiles
+  both as float and as double, so two `@ModifyConstant` handlers with `require = 0` cover
+  either form.
+- `ThrownItemRendererMixin` — `extractRenderState` stashes the entity type into the render
+  state (via `ThrownItemRenderStateMixin`), and the `submit` method's `PoseStack.scale`
+  call is redirected to multiply by the configured per-type multiplier. Fireballs / small
+  fireballs / arrows are not in the config and keep vanilla scales.
+
+`required: true` is set in the mixin config so a mismatched Minecraft version fails loudly
+instead of silently not applying.
