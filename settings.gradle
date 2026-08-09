@@ -1,0 +1,54 @@
+pluginManagement {
+    repositories {
+        // Aliyun mirrors (fast in China) - central + jcenter + gradle plugin portal
+        maven {
+            name = 'AliyunPublic'
+            url = 'https://maven.aliyun.com/repository/public'
+        }
+        maven {
+            name = 'AliyunGradlePlugin'
+            url = 'https://maven.aliyun.com/repository/gradle-plugin'
+        }
+        // Fabric's own maven for loom & loader
+        maven {
+            name = 'Fabric'
+            url = 'https://maven.fabricmc.net/'
+        }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    // Note: default PREFER_PROJECT mode - loom adds its own repositories (fabric maven,
+    // loom-cache, libraries.minecraft.net) to the project, so mod dependencies that only
+    // exist on other mavens must be declared in build.gradle's repositories block instead.
+    repositories {
+        maven {
+            name = 'AliyunPublic'
+            url = 'https://maven.aliyun.com/repository/public'
+        }
+        maven {
+            name = 'Fabric'
+            url = 'https://maven.fabricmc.net/'
+        }
+        // Minecraft runtime libraries (loom remaps against these)
+        maven {
+            name = 'MinecraftLibraries'
+            url = 'https://libraries.minecraft.net'
+        }
+        // Cloth Config (configuration GUI library)
+        maven {
+            name = 'Shedaniel'
+            url = 'https://maven.shedaniel.me'
+        }
+        // Mod Menu (configuration screen entry)
+        maven {
+            name = 'TerraformersMC'
+            url = 'https://maven.terraformersmc.com/releases'
+        }
+        mavenCentral()
+    }
+}
+
+rootProject.name = 'legacy-projectiles-scale'

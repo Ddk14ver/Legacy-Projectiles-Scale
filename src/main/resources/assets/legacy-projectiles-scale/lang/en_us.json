@@ -1,0 +1,21 @@
+{
+  "text.autoconfig.legacy-projectiles-scale.title": "Legacy Projectiles Scale Config",
+
+  "text.autoconfig.legacy-projectiles-scale.option.snowballScale": "Snowball scale",
+  "text.autoconfig.legacy-projectiles-scale.option.snowballScale.@Tooltip": "Render scale of snowballs. 1.0 = modern size, 0.5 = 1.8 size (default).",
+  "text.autoconfig.legacy-projectiles-scale.option.enderPearlScale": "Ender pearl scale",
+  "text.autoconfig.legacy-projectiles-scale.option.enderPearlScale.@Tooltip": "Render scale of ender pearls. 1.0 = modern size, 0.5 = 1.8 size (default).",
+  "text.autoconfig.legacy-projectiles-scale.option.splashPotionScale": "Splash potion scale",
+  "text.autoconfig.legacy-projectiles-scale.option.splashPotionScale.@Tooltip": "Render scale of splash potions. 1.0 = modern size, 0.5 = 1.8 size (default).",
+  "text.autoconfig.legacy-projectiles-scale.option.lingeringPotionScale": "Lingering potion scale",
+  "text.autoconfig.legacy-projectiles-scale.option.lingeringPotionScale.@Tooltip": "Render scale of lingering potions. 1.0 = modern size, 0.5 = 1.8 size (default).",
+  "text.autoconfig.legacy-projectiles-scale.option.eggScale": "Egg scale",
+  "text.autoconfig.legacy-projectiles-scale.option.eggScale.@Tooltip": "Render scale of eggs. 1.0 = modern size, 0.5 = 1.8 size (default).",
+  "text.autoconfig.legacy-projectiles-scale.option.experienceBottleScale": "XP bottle scale",
+  "text.autoconfig.legacy-projectiles-scale.option.experienceBottleScale.@Tooltip": "Render scale of XP bottles. 1.0 = modern size, 0.5 = 1.8 size (default).",
+  "text.autoconfig.legacy-projectiles-scale.option.enderEyeScale": "Eye of ender scale",
+  "text.autoconfig.legacy-projectiles-scale.option.enderEyeScale.@Tooltip": "Render scale of eyes of ender. 1.0 = modern size, 0.5 = 1.8 size (default).",
+
+  "text.autoconfig.legacy-projectiles-scale.option.removeEarlyHide": "Remove first-2-tick hiding",
+  "text.autoconfig.legacy-projectiles-scale.option.removeEarlyHide.@Tooltip": "Modern versions skip rendering a thrown projectile during its first 2 ticks while within 3.5 blocks of the camera; 1.8 had no such rule. When enabled, the projectile is visible from the moment it is thrown."
+}

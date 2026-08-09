@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.legacyprojectiles.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "FlyingItemEntityRendererMixin",
+    "FlyingItemEntityRenderStateMixin",
+    "ThrownEntityMixin",
+    "EyeOfEnderEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

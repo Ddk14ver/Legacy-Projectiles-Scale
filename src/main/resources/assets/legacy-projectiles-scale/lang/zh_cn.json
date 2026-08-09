@@ -1,0 +1,21 @@
+{
+  "text.autoconfig.legacy-projectiles-scale.title": "Legacy Projectiles Scale 配置",
+
+  "text.autoconfig.legacy-projectiles-scale.option.snowballScale": "雪球缩放倍数",
+  "text.autoconfig.legacy-projectiles-scale.option.snowballScale.@Tooltip": "雪球的渲染缩放倍数。1.0 为现代尺寸,0.5 为 1.8 尺寸(默认)。",
+  "text.autoconfig.legacy-projectiles-scale.option.enderPearlScale": "末影珍珠缩放倍数",
+  "text.autoconfig.legacy-projectiles-scale.option.enderPearlScale.@Tooltip": "末影珍珠的渲染缩放倍数。1.0 为现代尺寸,0.5 为 1.8 尺寸(默认)。",
+  "text.autoconfig.legacy-projectiles-scale.option.splashPotionScale": "喷溅药水缩放倍数",
+  "text.autoconfig.legacy-projectiles-scale.option.splashPotionScale.@Tooltip": "喷溅药水的渲染缩放倍数。1.0 为现代尺寸,0.5 为 1.8 尺寸(默认)。",
+  "text.autoconfig.legacy-projectiles-scale.option.lingeringPotionScale": "滞留药水缩放倍数",
+  "text.autoconfig.legacy-projectiles-scale.option.lingeringPotionScale.@Tooltip": "滞留药水的渲染缩放倍数。1.0 为现代尺寸,0.5 为 1.8 尺寸(默认)。",
+  "text.autoconfig.legacy-projectiles-scale.option.eggScale": "鸡蛋缩放倍数",
+  "text.autoconfig.legacy-projectiles-scale.option.eggScale.@Tooltip": "鸡蛋的渲染缩放倍数。1.0 为现代尺寸,0.5 为 1.8 尺寸(默认)。",
+  "text.autoconfig.legacy-projectiles-scale.option.experienceBottleScale": "附魔之瓶缩放倍数",
+  "text.autoconfig.legacy-projectiles-scale.option.experienceBottleScale.@Tooltip": "附魔之瓶的渲染缩放倍数。1.0 为现代尺寸,0.5 为 1.8 尺寸(默认)。",
+  "text.autoconfig.legacy-projectiles-scale.option.enderEyeScale": "末影之眼缩放倍数",
+  "text.autoconfig.legacy-projectiles-scale.option.enderEyeScale.@Tooltip": "末影之眼的渲染缩放倍数。1.0 为现代尺寸,0.5 为 1.8 尺寸(默认)。",
+
+  "text.autoconfig.legacy-projectiles-scale.option.removeEarlyHide": "移除投掷后前 2 tick 的隐藏",
+  "text.autoconfig.legacy-projectiles-scale.option.removeEarlyHide.@Tooltip": "现代版本在投掷物发射后的前 2 tick 且离镜头 3.5 格以内时不渲染它,1.8 没有此规则。开启后投掷物从出手那一刻就可见。"
+}
