@@ -1,4 +1,5 @@
 package com.legacyprojectiles.mixin;
+import com.legacyprojectiles.api.ThrownItemRenderStateEntityType;
 
 import net.minecraft.client.renderer.entity.state.ThrownItemRenderState;
 import net.minecraft.world.entity.EntityType;

@@ -1,4 +1,5 @@
 package com.legacyprojectiles.mixin;
+import com.legacyprojectiles.api.ThrownItemRenderStateEntityType;
 
 import com.legacyprojectiles.config.LegacyProjectilesConfig;
 import com.mojang.blaze3d.vertex.PoseStack;
