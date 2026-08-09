@@ -10,8 +10,8 @@ Two differences exist between 1.8 and modern Minecraft for thrown items:
 1. **Scale.** In 1.8 (`RenderSnowball`) snowballs, ender pearls, splash/lingering potions,
    eggs, XP bottles and eyes of ender were rendered with a hard-coded `scale(0.5F)`. In
    1.21.11 they are registered with the default `FlyingItemEntityRenderer` constructor
-   (scale `1.0F`), so projectiles appear twice as large. This mod halves the scale back to
-   `0.5F` (configurable per projectile).
+   (scale `1.0F`), so projectiles appear twice as large. This mod scales them down
+   (default `0.75`, configurable per projectile).
 2. **Early hiding.** Since ~1.21.6 the render pipeline hides the projectile during its
    first 2 ticks while it is still within 3.5 blocks of the camera:
    `if (this.age < 2 && distance < 12.25) return false;` in `ThrownEntity#shouldRender`
