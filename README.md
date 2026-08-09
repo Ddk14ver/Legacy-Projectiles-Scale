@@ -28,8 +28,8 @@ them the mod just uses the defaults). Open the config screen from Mod Menu, or e
 `config/legacy-projectiles-scale.json` directly:
 
 - Per-projectile **scale multiplier**: `snowball`, `enderPearl`, `splashPotion`,
-  `lingeringPotion`, `egg`, `experienceBottle`, `enderEye` — default `0.5` (= 1.8 size,
-  `1.0` = modern size). Values apply instantly.
+  `lingeringPotion`, `egg`, `experienceBottle`, `enderEye` — default `0.75`
+  (`1.0` = modern size; 1.8 vanilla was ~`0.5`). Values apply instantly.
 - `removeEarlyHide` — whether the first-2-ticks hiding is removed (default `true`).
 
 ## Implementation notes (1.21.11 render-state architecture)
